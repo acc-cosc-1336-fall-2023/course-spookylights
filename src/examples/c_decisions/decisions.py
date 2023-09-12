@@ -13,6 +13,8 @@ def is_consonant(letter):
     result = letter != 'a' and letter != 'e' and letter != 'i' and letter != 'o' and letter != 'u'
     return result
 
-name = "string"
-
-print(name)
+def is_overtime(hours):
+    result = False
+    result = hours > 40
+    return result
+        
