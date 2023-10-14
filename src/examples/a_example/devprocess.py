@@ -24,3 +24,7 @@ def get_remainder(val1, val2):
 def get_quotient(val1, val2):
      result = val1 // val2
      return result
+
+def global_x():
+     global x
+     x = 100
