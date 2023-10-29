@@ -1,24 +1,27 @@
 import unittest
 
-from src.homework.i_dictionaries_sets.dictionary import get_p_distance, get_p_distance_matrix
+from src.homework.i_dictionaries_sets.dictionary import add_inventory, remove_inventory_widget, widget_inv
 
 class Test_Config(unittest.TestCase):
 
-    def test_p_distance(self):
-        list1 =  ['T','T','T','C','C','A','T','T','T','A'] 
-        list2 = ['G','A','T','T','C','A','T','T','T','C']
-        self.assertEqual(get_p_distance(list1, list2), .4)
+    def test_add_inventory(self):
+        Widget1 = 'widget1'
+        quantity = 10
+        self.assertEqual(add_inventory(Widget1,quantity), {'widget1': 10})
+        quantity = 25
+        self.assertEqual(add_inventory(Widget1, quantity), {'widget1':35})
+        quantity = -10
+        self.assertEqual(add_inventory(Widget1, quantity), {'widget1':25})
 
-    def test_get_p_distance_matrix(self):
-        list = [
-                ['T','T','T','C','C','A','T','T','T','A'],
-                ['G','A','T','T','C','A','T','T','T','C'],
-                ['T','T','T','C','C','A','T','T','T','T'],
-                ['G','T','T','C','C','A','T','T','T','A']
-                ]
-        self.assertEqual(get_p_distance_matrix(list), [
- [0.0, 0.4, 0.1, 0.1],
- [0.4, 0.0, 0.4, 0.3],
- [0.1, 0.4, 0.0, 0.2],
-[0.1, 0.3, 0.2, 0.0]
-])
+    def test_remove_inventory_widget(self):
+        widget1 = 'widget1'
+        widget2 = 'widget2'
+        quantity1 = 10
+        quantity2 = 5
+        add_inventory(widget1, quantity1)
+        add_inventory(widget2, quantity2)
+        remove_inventory_widget(widget1)
+        self.assertEqual(len(widget_inv), 1)
+        self.assertIn('widget2', widget_inv)
+
+

@@ -1,33 +1,23 @@
-def get_p_distance(list1, list2):
-    x = 0
-    p_diff = []
-    if len(list1) == len(list2):
-        while x < len(list1):
-            for index in list1[x]:
-                if index not in list2[x]:
-                    p_diff.append(index)
-                    x += 1
-                    
-                else:
-                    x += 1
-        p_dist = len(p_diff) / len(list1)
-        return p_dist
+widget_inv = {}
+
+def add_inventory(widget_name, quantity):
+    global widget_inv
+    if widget_name in widget_inv.keys():
+
+        widget_inv[widget_name] += quantity
+        return widget_inv
     else:
-        print("Lists must be the same size. Exiting program.")
-        exit()
-
-def get_p_distance_matrix(list):
-   
-    p_distance_matrix = []
-       
-    for x in list:
-      
-        p_distance_matrix_row = []
+        widget_inv[widget_name] = quantity
+        return widget_inv
     
-        for y in list:
-          
-            p_distance_matrix_row.append(get_p_distance(x, y))
 
-        p_distance_matrix.append(p_distance_matrix_row)
+def remove_inventory_widget(widget_name):
+    global widget_inv
 
-    return p_distance_matrix
+    if widget_name in widget_inv.keys():
+        del widget_inv[widget_name]
+        print("Record deleted.")
+    else:
+        print("Item not found.")
+
+    
