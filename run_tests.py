@@ -5,7 +5,7 @@ has the test functions
 '''
 
 #from tests.homework.i_dictionaries_sets import tests_dictionaries_and_sets
-from tests.examples.j_classes import tests_classes
+from tests.homework.j_classes import tests_classes
 
 
 suite = unittest.TestLoader().loadTestsFromModule(tests_classes)
